@@ -1,0 +1,21 @@
+name: Learn Github Actions by action
+run-name: ${{github.actor}} is learning Github actions
+
+on:
+    pull_request:
+        types:
+            - opened
+
+jobs:
+    Job-A:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+    Job-B:
+        runs-on: ubuntu-latest
+        steps:
+            - name: List file system
+              run: ls -ltr
